@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Macaria - Control Multimodal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/voice.css">
+    <link rel="stylesheet" href="assets/css/gestures.css">
+</head>
+
+<body>
+
+    <!-- ================= MODAL GESTOS ================= -->
+    <div id="instructionsModal" class="instructions-modal hidden">
+        <div class="instructions-content">
+
+            <h2>CONTROL POR GESTOS</h2>
+            <p class="intro-text">
+                Coloca tu mano frente a la cámara y realiza los siguientes gestos:
+            </p>
+
+            <div class="instructions-grid">
+
+                <div class="instruction-card">
+                    <h4>AVANZAR</h4>
+                    <p>Pulgar + Meñique</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>RETROCEDER</h4>
+                    <p>Mano cerrada</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>DETENER</h4>
+                    <p>Mano abierta</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>VUELTA DERECHA</h4>
+                    <p>Índice (mano derecha)</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>VUELTA IZQUIERDA</h4>
+                    <p>Índice (mano izquierda)</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>90° derecha</h4>
+                    <p>Meñique (mano derecha)</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>90° izquierda</h4>
+                    <p>Meñique (mano izquierda)</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>360° derecha</h4>
+                    <p>Medio + Anular + Meñique (mano derecha)</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>360° izquierda</h4>
+                    <p>Medio + Anular + Meñique (mano izquierda)</p>
+                </div>
+
+            </div>
+
+            <button id="closeInstructions" class="reload-btn">Cerrar</button>
+
+        </div>
+    </div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="topbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            <div class="d-flex align-items-center gap-3">
+                <div class="logo-box">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+                <div>
+                    <h1 class="title">MACARIA</h1>
+                    <small class="subtitle">Control Multimodal</small>
+                </div>
+            </div>
+
+            <div class="mode-switch">
+                <button id="btnVoice" class="mode-btn active">VOZ</button>
+                <button id="btnGesture" class="mode-btn">GESTOS</button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= VOZ ================= -->
+    <section id="voiceMode" class="mode-voice">
+
+        <main class="container-fluid main-panel">
+
+            <div class="panel-header">
+                <h2><i class="bi bi-volume-up-fill"></i> Te escucho...</h2>
+                <button id="infoVoiceBtn"
+                        class="btn btn-sm btn-outline-info instrucciones-btn">
+                    Instrucciones
+                </button>
+            </div>
+
+            <div class="audio-visual">
+                <div class="wave"></div>
+            </div>
+
+            <div class="section">
+                <label>TEXTO DETECTADO</label>
+                <div class="display-box">
+                    <span id="transcript">Esperando comando de voz...</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>ORDEN DETECTADA</label>
+                <div class="display-box command-box">
+                    <span id="command">SISTEMA ACTIVADO</span>
+                </div>
+            </div>
+
+            <div id="substatus" class="substatus-hidden"></div>
+
+        </main>
+
+    </section>
+
+    <!-- ================= GESTOS ================= -->
+    <section id="gestureMode" class="mode-gesture" style="display:none;">
+
+        <main class="container">
+
+            <section class="video-panel">
+
+                <div class="reload-voice-container">
+                    <button id="infoGestureBtn"
+                            class="reload-btn instrucciones-btn">
+                        Instrucciones
+                    </button>
+                </div>
+
+                <div class="video-frame">
+                    <canvas id="canvas"></canvas>
+                </div>
+
+            </section>
+
+            <section class="info-panel">
+
+                <div class="display-box">
+                    <h3>MANO DETECTADA</h3>
+                    <p id="mano">Esperando detección...</p>
+                </div>
+
+                <div class="display-box">
+                    <h3>DEDOS DETECTADOS</h3>
+                    <div class="dedos-grid">
+                        <div>Pulgar: <span id="pulgar" class="led off"></span></div>
+                        <div>Índice: <span id="indice" class="led off"></span></div>
+                        <div>Medio: <span id="medio" class="led off"></span></div>
+                        <div>Anular: <span id="anular" class="led off"></span></div>
+                        <div>Meñique: <span id="menique" class="led off"></span></div>
+                    </div>
+                </div>
+
+                <div class="command-box">
+                    <h3>ORDEN RECONOCIDA</h3>
+                    <p id="orden">Sistema listo</p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-tech">
+        Desarrollado por <strong>Maricruz Pineda Lara</strong><br>
+        TecNM Pachuca 2026
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/voice.js"></script>
+    <script type="module" src="assets/js/gestures.js"></script>
+    <script src="assets/js/modeController.js"></script>
+
+</body>
+</html>
