@@ -244,6 +244,9 @@ async function loop() {
     if (manoTexto) manoTexto.innerText = lado;
     if (ordenTexto) ordenTexto.innerText = nombre;
 
+    // ── Enviar al carrito ──────────────────────────────
+    if (window.enviarComando) window.enviarComando(nombre, "Gesto");
+
     actualizarLed(pulgarLed, patron[0]);
     actualizarLed(indiceLed, patron[1]);
     actualizarLed(medioLed, patron[2]);

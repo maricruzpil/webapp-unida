@@ -171,8 +171,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     safeText(commandEl, cmd);
     setSubstatus(cmd === "Orden no reconocida" ? "No se reconoció una orden válida." : "Orden reconocida.");
+  
+// ── Enviar al carrito ──────────────────────────────
+    if (window.enviarComando) window.enviarComando(cmd, "Voz");
   };
-
   setMode("Activo", "pill-active");
   setSubstatus("Pide permisos del micrófono. Escuchando órdenes…");
   //safeStart();
