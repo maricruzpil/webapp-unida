@@ -68,3 +68,50 @@ body {
   font-size: 0.8rem;
   color: #3e5864;
 }
+
+.demo-section {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.btn-demo {
+  background: transparent;
+  border: 2px solid #00e5ff;
+  color: #00e5ff;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.btn-demo:hover {
+  background: #00e5ff;
+  color: #000;
+  box-shadow: 0 0 16px #00e5ff55;
+}
+ 
+.btn-demo:disabled {
+  border-color: #555;
+  color: #555;
+  cursor: not-allowed;
+  background: transparent;
+  box-shadow: none;
+}
+ 
+.demo-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  color: #00e5ff;
+  letter-spacing: 1px;
+  min-height: 18px;
+}
+ 
