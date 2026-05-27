@@ -167,6 +167,9 @@ function clasificarGesto(patron, lado) {
  
     "01000_Derecha": "VUELTA DERECHA",
     "01000_Izquierda": "VUELTA IZQUIERDA",
+
+    "01100_Derecha": "VUELTA ATRÁS DERECHA",
+    "01100_Izquierda": "VUELTA ATRÁS IZQUIERDA",
  
     "00001_Derecha": "90° DERECHA",
     "00001_Izquierda": "90° IZQUIERDA",

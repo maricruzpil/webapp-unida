@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "detener",
     "vuelta derecha",
     "vuelta izquierda",
+    "vuelta atrás derecha",
+    "vuelta atrás izquierda",
     "90° derecha",
     "90° izquierda",
     "360° derecha",
-    "360° izquierda",
     "360° izquierda",
     "demo",
     "Orden no reconocida",
@@ -204,6 +205,8 @@ retroceder
 detener
 vuelta derecha
 vuelta izquierda
+vuelta atrás derecha
+vuelta atrás izquierda
 90° derecha
 90° izquierda
 360° derecha
@@ -322,9 +325,8 @@ Hola. Soy Macaria, tu asistente de control por voz.
  
 Estoy lista para ayudarte.
 Puedes decir comandos como avanzar, retroceder, detener,
-vuelta derecha, vuelta izquierda,
-noventa grados derecha o izquierda,
-o giro completo de trescientos sesenta grados.
+vuelta derecha, vuelta izquierda, o hacia atrás.
+También puedes pedir giros específicos, como 90° o 360° hacia cualquier dirección.
  
 Si no detecto voz durante unos segundos,
 entro en modo suspendido.
