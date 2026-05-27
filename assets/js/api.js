@@ -3,7 +3,7 @@
   Incluye: envío de comandos, velocidad, sensor, DEMO
 */
  
-const API_BASE = "http://192.168.0.17:5000";
+const API_BASE = "https://web-production-a207c.up.railway.app";
  
 const COMANDOS = {
   "avanzar": 1,          "AVANZAR": 1,
