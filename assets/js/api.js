@@ -11,6 +11,8 @@ const COMANDOS = {
   "detener": 3,          "DETENER": 3,
   "vuelta derecha": 4,   "VUELTA DERECHA": 4,
   "vuelta izquierda": 5, "VUELTA IZQUIERDA": 5,
+  "vuelta atrás derecha": 6,  "VUELTA ATRÁS DERECHA": 6,
+  "vuelta atrás izquierda": 7, "VUELTA ATRÁS IZQUIERDA": 7,
   "90° derecha": 8,      "90° DERECHA": 8,
   "90° izquierda": 9,    "90° IZQUIERDA": 9,
   "360° derecha": 10,    "360° DERECHA": 10,
@@ -21,6 +23,7 @@ const COMANDOS = {
 const NOMBRES = {
   1: "Adelante", 2: "Atrás", 3: "Detener",
   4: "Vuelta derecha", 5: "Vuelta izquierda",
+  6: "Vuelta atrás der.", 7: "Vuelta atrás izq.",
   8: "Giro 90° der.", 9: "Giro 90° izq.",
   10: "Giro 360° der.", 11: "Giro 360° izq.",
 };
